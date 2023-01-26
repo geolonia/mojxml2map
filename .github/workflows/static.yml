@@ -28,15 +28,28 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
       - name: Set up Python 3.x
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
           architecture: 'x64'
+      - name: Install gdal
+        run: |
+          sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt-get update
+          sudo apt-get update
+          sudo apt-get install gdal-bin
+          sudo apt-get install libgdal-dev
+          export CPLUS_INCLUDE_PATH=/usr/include/gdal
+          export C_INCLUDE_PATH=/usr/include/gdal
+          pip install GDAL
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Convert xml to geojson
+        run: |
+          pip install .
+          mojxml2geojson ./data/46505-3411-10.xml
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
