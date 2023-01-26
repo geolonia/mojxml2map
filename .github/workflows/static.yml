@@ -50,15 +50,20 @@ jobs:
       - name: Convert xml to geojson
         run: |
           pip install .
-          mojxml2geojson ../data/46505-3411-10.xml
+          mojxml2geojson ../data/data.xml
         working-directory: ./mojxml2geojson
+      - name: Convert GeoJSON file
+        run: |
+          node convert.js data/data.geojson
+      - name: Move out.geojson
+        run: mv out.geojson dist/
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: '.'
+          path: 'dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
