@@ -35,13 +35,10 @@ jobs:
           architecture: 'x64'
       - name: Install gdal
         run: |
-          sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt-get update
-          sudo apt-get update
-          sudo apt-get install gdal-bin
-          sudo apt-get install libgdal-dev
-          export CPLUS_INCLUDE_PATH=/usr/include/gdal
-          export C_INCLUDE_PATH=/usr/include/gdal
-          pip install GDAL
+          sudo apt-get update && apt-get -y install gdal-bin libgdal-dev build-essential
+          pip install --upgrade pip
+          pip install --no-cache-dir setuptools==57.4.0
+          pip install --no-cache-dir GDAL==3.2.2
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
       - name: Checkout
