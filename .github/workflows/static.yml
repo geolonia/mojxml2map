@@ -40,14 +40,18 @@ jobs:
           pip install --upgrade pip
           pip install --no-cache-dir setuptools==57.4.0
           pip install --no-cache-dir GDAL==3.2.2
-      - name: Display Python version
-        run: python -c "import sys; print(sys.version)"
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Checkout mojxml2geojson
+        uses: actions/checkout@v3
+        with:
+          repository: JDA-DM/mojxml2geojson
+          path: ./mojxml2geojson
       - name: Convert xml to geojson
         run: |
           pip install .
-          mojxml2geojson ./data/46505-3411-10.xml
+          mojxml2geojson ../data/46505-3411-10.xml
+        working-directory: ./mojxml2geojson
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
