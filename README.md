@@ -2,7 +2,7 @@
 
 [法務省登記所備付地図データ](https://front.geospatial.jp/houmu-chiseki/)を簡単に地図上([Geolonia Maps](https://geolonia.com/maps-dev/))に表示します。
 
-![Demo](mojxml2map.gif)
+![Demo](images/mojxml2map.gif)
 
 ## 使い方
 
@@ -33,8 +33,8 @@ git push origin main
 
 - 処理が完了すると、GitHub Pages の URL が表示されるので、それをクリックします。
 
-![deploy](deploy.png)
+![deploy](images/deploy.png)
 
 - 変換が成功していれば、以下のように地図上に区分けされた地番が表示されます。
 
-![map](map.png)
+![map](images/map.png)
