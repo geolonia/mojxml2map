@@ -47,14 +47,16 @@ jobs:
         with:
           repository: JDA-DM/mojxml2geojson
           path: ./mojxml2geojson
+      - name: Get xml filename without extension
+        run: echo "XML_FILENAME=$(ls data/*.xml | xargs -i basename {} .xml)" >> $GITHUB_ENV
       - name: Convert xml to geojson
         run: |
           pip install .
-          mojxml2geojson ../data/data.xml
+          mojxml2geojson ../data/${{ env.XML_FILENAME }}.xml
         working-directory: ./mojxml2geojson
       - name: Convert GeoJSON file
         run: |
-          node convert.js data/data.geojson
+          node convert.js data/${{ env.XML_FILENAME }}.geojson
       - name: Move out.geojson
         run: mv out.geojson dist/
       - name: Setup Pages

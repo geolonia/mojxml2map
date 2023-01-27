@@ -14,7 +14,7 @@ for (const feature of data['features']) {
   })
 }
 
-fs.writeFileSync('out.geojson', JSON.stringify({
+fs.writeFileSync('data.geojson', JSON.stringify({
   type: 'FeatureCollection',
   features: features
 }))
