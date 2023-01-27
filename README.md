@@ -1,37 +1,36 @@
 # mojxml2map
 
-[法務省登記所備付地図データ](https://front.geospatial.jp/houmu-chiseki/)を簡単に地図上([Geolonia Maps](https://geolonia.com/maps-dev/))に表示します。
+GitHub 上の操作だけで、[法務省登記所備付地図データ](https://front.geospatial.jp/houmu-chiseki/)を簡単に地図上([Geolonia Maps](https://geolonia.com/maps-dev/))に表示します。必要なものは GitHub アカウントだけです。
 
 ![Demo](images/mojxml2map.gif)
 
 ## 使い方
 
-- [法務省登記所備付地図データ](https://front.geospatial.jp/houmu-chiseki/)　より目的の xml ファイルをダウンロードします。
+- [法務省登記所備付地図データ](https://front.geospatial.jp/houmu-chiseki/)　より地図上に表示したい xml ファイルをダウンロードしておきます。各 xml ファイルは zip で圧縮してあるので解凍します。
 
-- [champierre/mojxml2map](https://github.com/champierre/mojxml2map) を git clone します。
+- [geolonia/mojxml2map](https://github.com/geolonia/mojxml2map) を自分のリポジトリにフォークします。
 
-```
-git clone git@github.com:champierre/mojxml2map.git
-```
+![fork](images/fork.png)
 
-- クローンした mojxml2map 以下の data フォルダの下に、xml ファイルをコピーしファイル名を data.xml に変更します。
+- Settings タブ、左メニューから Pages を選び、Source に GitHub Actions を選択します。
 
-```
-cd mojxml2map
-cp <filename of the xml file>.xml data/data.xml
-```
+![github-pages](images/github-pages.png)
 
-- 変更をコミットして、リポジトリに push します。
+- Code タブを選択し、data フォルダを選びます。xml ファイルをドラッグ&ドロップしてアップロードします。アップロードが終わったら、画面下の方の Commit changes ボタンを押します。
 
-```
-git add .
-git commit
-git push origin main
-```
+![github-pages](images/upload.png)
 
-- Actions タブをクリックすると、GitHub Actions で xml ファイルを GeoJSON ファイルに変換し、地図上に地番を表示するように加工する様子を確認できます。処理が終わるまでしばらく待ちます。
+- Actions タブを選び I understand ... ボタンをクリックします。
 
-- 処理が完了すると、GitHub Pages の URL が表示されるので、それをクリックします。
+![github-actions](images/github-actions.png)
+
+- 左メニューの Deploy static content to Pages を選択し、Run workflow で GitHub Actions に設定してある workflow を開始します。
+
+![run-workflow](images/run-workflow.png)
+
+- workflow では、デジタル庁より公開されている[法務省登記所備付地図データ（地図XML）をGeoJSONに変換するコンバータ](https://github.com/JDA-DM/mojxml2geojson)を使って xml ファイルを GeoJSON ファイルに変換し、地図上で地番とともに表示されるように加工してから GitHub Pages 上にページを用意します。
+
+- 処理が完了すると、GitHub Pages の URL が表示されるのでクリックします。
 
 ![deploy](images/deploy.png)
 
