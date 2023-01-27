@@ -57,8 +57,8 @@ jobs:
       - name: Convert GeoJSON file
         run: |
           node convert.js data/${{ env.XML_FILENAME }}.geojson
-      - name: Move out.geojson
-        run: mv out.geojson dist/
+      - name: Move data.geojson
+        run: mv data.geojson dist/
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
