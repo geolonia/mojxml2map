@@ -37,3 +37,9 @@ GitHub 上の操作だけで、[法務省登記所備付地図データ](https:/
 - 変換が成功していれば、以下のように地図上に区分けされた地番が表示されます。
 
 ![map](images/map.png)
+
+※ 上記のようにきちんと地図上に表示されるのは座標系が「公共座標◯系」となっているデータ(xmlファイルの中身、冒頭で確認できます)で、「任意座標系」のデータの場合は以下のように正しく表示されません。
+
+![coordinate-system](images/coordinate-system.png)
+
+![arbitrary-coordinate-system](images/arbitrary-coordinate-system.png)
