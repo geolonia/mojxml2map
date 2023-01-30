@@ -57,8 +57,9 @@ jobs:
       - name: Convert GeoJSON file
         run: |
           node convert.js data/${{ env.XML_FILENAME }}.geojson
-      - name: Move data.geojson and converted geojson file
+      - name: Move data.geojson
         run: mv data.geojson dist/
+      - name: Move converted geojson file
         run: mv data/${{ env.XML_FILENAME }}.geojson dist/
       - name: Edit index.html
         run: sed -e "s|{{geojson-filename}}|${{ env.XML_FILENAME }}|g" dist/index.html.original > dist/index.html
