@@ -17,7 +17,7 @@
   <body>
     <strong>ダウンロードリンク</strong>
     <ul>
-      <li><a href="{{geojson-filename}}.geojson">{{geojson-filename}}.geojson</a> - mojxml2geojsonで変換後のGeoJSONファイル</li>
+      <li><a href="{{geojson-filename}}.geojson" download="{{geojson-filename}}.geojson">{{geojson-filename}}.geojson</a> - mojxml2geojsonで変換後のGeoJSONファイル</li>
       <li><a href="data.geojson" download="data.geojson">data.geojson</a> - 地番住所を表示できるようにした整形済みGeoJSONファイル</li>
       <li><a href="index.html" download="index.html">index.html</a> - このページを表示しているHTMLファイル</li>
     </ul>
