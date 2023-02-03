@@ -43,3 +43,8 @@ GitHub 上の操作だけで、[法務省登記所備付地図データ](https:/
 ![coordinate-system](images/coordinate-system.png)
 
 ![arbitrary-coordinate-system](images/arbitrary-coordinate-system.png)
+
+## その他参考情報
+
+- [登記所備付地図データ用 XML Viewer](https://github.com/geolonia/chiban-viewer)
+- [法務省地図XMLアダプトプロジェクト](https://github.com/amx-project)
